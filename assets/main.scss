@@ -1,0 +1,43 @@
+:root {
+  --color: #1be25d;
+  --background: #fff2d2;
+  --gray-6: #f4f5f6ff;
+  --gray-5: #e8e9ebff;
+  --gray-4: #bec0c6ff;
+  --gray-3: #727e83ff;
+  --gray-2: #4c5457ff;
+  --gray-1: #313638ff;
+
+  transition: 1s;
+}
+
+.theme-azure {
+    --primary: #1ae9d8;
+    --accent: #fac132;
+}
+
+.theme-sanguine {
+    --primary: #ff1361;
+    --accent: #fa561f;
+}
+
+.theme-draconic {
+    --primary: #9f56ff;
+    --accent: #5b6dbb;
+}
+
+.dark {
+  --color: var(--gray-6);
+  --background: var(--gray-1);
+  --border: var(--gray-3);
+  --link-hover: var();
+  --gradient: linear-gradient(to bottom, var(--gray-6), var(--gray-1))
+}
+
+.light {
+    --color: var(--gray-1);
+    --background: var(--gray-6);
+    --border: var(--gray-4);
+    --link-hover: #5aacf1;
+    --gradient: linear-gradient(to bottom, var(--gray-3), var(--gray-1))
+}
