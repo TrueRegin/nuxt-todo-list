@@ -1,5 +1,11 @@
 <template>
-    <button @click="$emit('click', {theme, color_theme})" class="theme-button" :class="`theme-${theme} ${color_theme}`">{{name}}</button>
+    <button
+        @click="$emit('click', { theme, color_theme })"
+        class="theme-button"
+        :class="`theme-${theme} ${color_theme} ${selected ? 'selected' : ''}`"
+    >
+        {{ name }}
+    </button>
 </template>
 
 <script lang="ts">
@@ -10,9 +16,8 @@ import { Component, Prop } from 'nuxt-property-decorator';
 export default class extends Vue {
     @Prop({ required: true }) name!: string;
     @Prop({ required: true }) theme!: string;
-    @Prop({required: true}) color_theme!: string;
-
-
+    @Prop({ required: true }) color_theme!: string;
+    @Prop({ required: true }) selected!: boolean;
 }
 </script>
 
@@ -49,6 +54,11 @@ export default class extends Vue {
     &:active::after {
         transform-origin: left bottom;
         transform: scaleX(1);
+    }
+
+    &.selected::after {
+        transform: scaleX(1);
+        top: 0;
     }
 }
 </style>

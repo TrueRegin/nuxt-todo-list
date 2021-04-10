@@ -2,7 +2,7 @@
     <div id="app" :class="getTheme">
         <div id="nav">
             <theme-button v-for="({theme, color_theme, name}, i) in getThemes" :key="i" @click="selectTheme" :theme="theme"
-            :color_theme="color_theme" :name="name" />
+            :color_theme="color_theme" :name="name" :selected="currTheme === theme && currColor === color_theme" />
         </div>
         <main id="content">
             <Nuxt />
@@ -20,17 +20,17 @@ import { ColorType, Theme, ThemeType } from '~/types/Theme';
     components: { ThemeButton },
 })
 export default class DefaultLayout extends Vue {
-    theme: ThemeType = 'sanguine';
-    color: ColorType = 'light';
+    currTheme: ThemeType = 'sanguine';
+    currColor: ColorType = 'light';
     @Getter('themes/getThemes') getThemes!: Theme[];
 
     selectTheme(theme: Theme) {
-        this.theme = theme.theme;
-        this.color = theme.color_theme;
+        this.currTheme = theme.theme;
+        this.currColor = theme.color_theme;
     }
 
     get getTheme() {
-        return { [this.color]: true, [`theme-${this.theme}`]: true };
+        return { [this.currColor]: true, [`theme-${this.currTheme}`]: true };
     }
 }
 </script>
