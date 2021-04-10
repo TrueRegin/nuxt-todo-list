@@ -92,6 +92,7 @@ export default class extends Vue {
     background: none;
     transition: border-color 0.22s;
     transition-timing-function: ease-out;
+    color: var(--color);
 
     &:focus, &:active {
         border-color: var(--accent);
